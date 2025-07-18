@@ -5,14 +5,44 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('media/SuisseIntl-Book.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'SuisseIntl', sans-serif; 
   color: #000;
+  min-height: 100vh;
+  margin: 0;
   background: linear-gradient(to top right, #f9fafa, #dce8ec);
+  background-image: url("media/bg-desktop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: top;
+
+  overflow-y: hidden;
+  overflow-y: hidden;
+}
+
+/* Tablet background */
+@media (max-width: 1024px) {
+  body {
+    background-image: url("media/bg-tablet.jpg");
+  }
+}
+
+/* Mobile background */
+@media (max-width: 600px) {
+  body {
+    background-image: url("media/bg-mobile.jpg");
+  }
 }
 
 a {
@@ -23,41 +53,60 @@ a {
 /* Layout container */
 .container {
   padding: 2rem;
-  max-width: 1000px;
   width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
 header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  line-height: 1.2;
+  font-size:3rem;
+  margin-bottom: 0.2rem;
+  line-height:1.1;
 }
 
 .highlight {
-  color: #5d8f9e;
+  color: #5c8e9b;
   font-weight: 600;
 }
 
 .subtitle,
 .note {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #111;
-  margin-top: 0.5rem;
+
+}
+
+main{
+  width: fit-content;
+  align-self: center;
+  justify-self: center;
 }
 
 /* Main links */
 .links {
   list-style: none;
-  font-size: 1.6rem;
+  font-size: 3rem;
+  line-height: 1.4;
   margin: 3rem 0;
+
+  width: fit-content;
+
+  /* margin-top: auto;
+  margin-bottom: auto; */
 }
 
 .links li {
-  margin-bottom: 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  width: fit-content;
 }
 
 .links a.hover-link {
@@ -71,17 +120,17 @@ header h1 {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: 0.1em;
   width: 100%;
-  height: 2px;
-  background-color: #5d8f9e;
+  height: 0.1em;
+  background-color: #5c8e9b;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .links a.hover-link:hover {
-  color: #5d8f9e;
+  color: #5c8e9b;
 }
 
 .links a.hover-link:hover::after {
@@ -90,29 +139,52 @@ header h1 {
 
 /* Footer */
 footer {
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.25;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  /* gap: 1rem; */
+  /* position: fixed;
+  bottom: 2rem; */
+  width: 100%;
+  align-self: flex-end;
+  justify-self: end;
+  gap: 0.5rem;
 }
 
 footer p {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
+  vertical-align: bottom;
+  
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+
+
+ 
   .container {
     padding: 1.5rem;
+  }
+
+  header {
+    flex-direction: column;
   }
 
   header h1 {
     font-size: 1.8rem;
   }
 
+  main{
+    width: 100%;
+    align-self: flex-start;
+    justify-self: start;
+  }
+  
+
   .links {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
   footer {
@@ -139,7 +211,6 @@ footer p {
   }
 }
 
-
 /* === Hover Animations for Arrows === */
 
 .links li {
@@ -150,18 +221,29 @@ footer p {
   transition: all 0.3s ease;
 }
 
-/* Animate arrow on hover */
-.links li .icon {
-  display: inline-block;
-  transition: transform 0.3s ease;
+/* SVG Arrows */
+.arrow-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-bottom: 0.2rem;
+  margin-right: 0.5rem;
+  transition: transform 0.5s ease;
 }
 
-/* Target arrow animation when hovering over the whole link row */
-.links li:hover .icon {
-  transform: translateY(4px); /* for ↓ */
+/* Rotate for visual direction */
+/* .arrow-icon.down {
+  transform: rotate(180deg);
+} */
+
+.arrow-icon.right {
+  transform: rotate(-90deg);
 }
 
-/* Adjust for → specifically */
-.links li:last-child:hover .icon {
-  transform: translateX(4px); /* for → */
+/* Animate on hover */
+.links li:hover .arrow-icon.down {
+  transform: rotate(-90deg);
+}
+
+.links li:hover .arrow-icon.right {
+  transform: rotate(-180deg);
 }

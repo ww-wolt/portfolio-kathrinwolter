@@ -165,3 +165,29 @@ footer p {
 .links li:last-child:hover .icon {
   transform: translateX(4px); /* for → */
 }
+
+
+/* SVG Arrows */
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate for visual direction */
+/* .arrow-icon.down {
+  transform: rotate(180deg);
+} */
+
+.arrow-icon.right {
+  transform: rotate(-90deg);
+}
+
+/* Animate on hover */
+.links li:hover .arrow-icon.down {
+  transform: rotate(-90deg) translateY(4px);
+}
+
+.links li:hover .arrow-icon.right {
+  transform: rotate(-90deg) translateX(4px);
+}

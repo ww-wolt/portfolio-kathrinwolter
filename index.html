@@ -3,8 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kathrin Wolter Portfolio</title>
+    
     <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        let emailParts = ['hello', 'hc.retlownirhtak'];
+        let emailAddress = emailParts[0] + '@' + emailParts[1].split('').reverse().join('');
+        
+        // Replace all elements with the email-display class
+        document.querySelectorAll('.email-display').forEach(function(element) {
+          element.textContent = emailAddress;
+        });
+        
+        // Update all email links
+        document.querySelectorAll('.email-link').forEach(function(element) {
+          element.href = 'mailto:' + emailAddress;
+        });
+      });
+    </script>
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-snippet: -1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Basic SEO -->
+    <title>Kathrin Wolter Portfolio</title>
+    <meta name="description" content="Kathrin Wolter - Vermittlung, Design, Kunst" />
+ 
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kathrin Wolter Portfolio" />
+    <meta property="og:description" content="Kathrin Wolter - Vermittlung, Design, Kunst" />
+    <!-- <meta property="og:image" content={seo.image} /> -->
+    <meta property="og:url" content="https://www.kathrinwolter.ch/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
+    <meta name="twitter:title" content="Kathrin Wolter Portfolio" />
+    <meta name="twitter:description" content="Kathrin Wolter - Vermittlung, Design, Kunst" />
+    <!-- <meta name="twitter:image" content={seo.image} /> -->
+
   </head>
   <body>
     <div class="container">
@@ -20,8 +58,14 @@
         <ul class="links">
           <li>
             <img src="media/arrow1.png" alt="Arrow Down" class="arrow-icon down" />
-            <a href="/media/kathrin-wolter-portfolio2025.pdf" target="_blank" class="hover-link"
+            <a href="/media/Wolter-Kathrin-Portfolio2025.pdf" target="_blank" class="hover-link"
               >Portfolio ansehen</a
+            >
+          </li>
+          <li>
+            <img src="media/arrow1.png" alt="Arrow Down" class="arrow-icon down" />
+            <a href="media/Wolter-Kathrin-CINIS.pdf" target="_blank" class="hover-link"
+              >Diplomprojekt</a
             >
           </li>
           <li>
@@ -32,7 +76,7 @@
           </li>
           <li>
             <img src="media/arrow1.png" alt="Arrow Right" class="arrow-icon right" />
-            <a href="mailto:hello@kathrinwolter.ch" class="hover-link"
+            <a href="mailto:hello[ätt]kathrinwolter.ch" class="hover-link email-link" 
               >Kontakt aufnehmen</a
             >
           </li>
@@ -42,7 +86,7 @@
       <footer>
         <p>
           Kathrin Wolter<br />
-          <a href="mailto:hello@kathrinwolter.ch">hello@kathrinwolter.ch</a>
+          <a href="#" class="email-link"><span class="email-display">hello[ätt]kathrinwolter.ch</span></a>
         </p>
         <p class="mobile-show">
           Diese Website befindet sich derzeit im Aufbau.
